@@ -96,17 +96,21 @@ GROUP BY customer_id, product_name;
 ### 4. What is the most purchased item on the menu and how many times was it purchased by all customers?
 
 ````sql
-SELECT TOP 1 (COUNT(s.product_id)) AS the_most_purchased, product_name
-FROM sales AS s
-JOIN menu AS m
-   ON s.product_id = m.product_id
-GROUP BY s.product_id, product_name
-ORDER BY the_most_purchased DESC;
+SELECT
+  m.product_name,
+  COUNT(s.product_id) AS order_count
+FROM sales as s 
+JOIN menu as m 
+  ON s.product_id = m.product_id
+GROUP BY
+  m.product_name
+ORDER BY order_count DESC
+LIMIT 1;
 ````
 
 #### Steps:
-- **COUNT** number of ```product_id``` and **ORDER BY** ```the_most_purchased``` by descending order. 
-- Then, use **TOP 1** to filter highest number of purchased item.
+- **COUNT** number of ```product_id``` and **ORDER BY** ```order_count``` by descending order. 
+- Then, use **Limit 1** to filter highest number of purchased item.
 
 #### Answer:
 | most_purchased | product_name | 

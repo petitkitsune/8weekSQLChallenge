@@ -305,7 +305,7 @@ Using ```price_points```, **SUM** the ```points```.
 
 ***
 
-### 10. 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi — how many points do customer A and B have at the end of January?
+### 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi — how many points do customer A and B have at the end of January?
 
 ````sql
 WITH count_points_cte AS (
@@ -358,8 +358,8 @@ ORDER BY
 
 #### Steps:
 
-- First we need to count points as usual: 10 points for each dollar spent on :curry: and :ramen: and 20 points for each dollar spent on :sushi:. 
-We add this calculation to the `CTE` using `WITH` statement. Next we use this `CTE` to add extra 10 points for all the purchases of :curry: and :ramen: made by customers on the first week of their membership and return the sum of new points. The points for :sushi: remain the same - 20 points.
+-Let's count points as usual: 10 points for each dollar spent on :curry: and :ramen: and 20 points for each dollar spent on :sushi:. 
+We add this calculation to the `CTE` using `WITH` statement. Then we use this `CTE` to add extra 10 points for all the purchases of :curry: and :ramen: made by customers on the first week of their membership and return the sum of new points. The points for :sushi: remain the same - 20 points.
 
 #### Answer:
 | customer_id | total_points | 
